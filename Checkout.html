@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkout</title>
+  <link rel="stylesheet" href="checkout.css" />
+  <link rel="stylesheet" href="style.css" />
+  <script
+    src="https://www.paypal.com/sdk/js?client-id=AVx6kcena6-JfqBaUdiCRVmDjKc2jTbWHqL_CpaEcKg9amuD-hax39fDeA5BYBFlekcvsORI7eTIPEfm&currency=USD&buyer-country=US&components=buttons">
+  </script>
+</head>
+
+<body>
+  <div class="top-bar">
+    <span>info@RideHistorypro.com</span>
+    <span>+1 (631) 1 480-7537</span>
+  </div>
+
+  <nav class="navbar">
+    <div class="logo"><img src="Assets/logo.png" alt="Logo" /></div>
+    <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Our Pricing</a></li>
+      <li><a href="#">About Us</a></li>
+      <li><a href="#">Our Service</a></li>
+      <li><a href="#">FAQ</a></li>
+      <li><a href="#">Contact Us</a></li>
+    </ul>
+  </nav>
+
+  <div class="checkout-wrapper">
+    <div class="plan-selection-container">
+      <h1 class="checkout-heading">Checkout</h1>
+      <div class="plan-bar">
+        <div>
+          Select your plan:
+          <select id="planDropdown">
+            <option value="0.03">$1.00 – Bronze Plan (Test)</option>
+            <option value="49.99">$49.99 – Silver Plan</option>
+            <option value="69.99">$69.99 – Gold Plan</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="biling-section">
+      <div class="form-section">
+        <h2>Billing details</h2>
+        <form id="checkoutForm">
+          <div class="form-group">
+            <div>
+              <label>First name *</label>
+              <input type="text" name="fname" required />
+            </div>
+            <div>
+              <label>Last name *</label>
+              <input type="text" name="lname" required />
+            </div>
+          </div>
+
+          <label>Company name (optional)</label>
+          <input type="text" />
+
+          <label for="country">Country / Region *</label>
+          <select id="country" required>
+            <option value="">Select Country</option>
+            <option value="US">United States</option>
+            <option value="AU">Australia</option>
+          </select>
+
+          <label>Street address *</label>
+          <input type="text" required />
+          <input type="text" placeholder="Apartment, suite, unit (optional)" />
+
+          <label>Town / City *</label>
+          <input type="text" required />
+
+          <label for="state">State / County *</label>
+          <select id="state" required>
+            <option value="">Select a country first</option>
+          </select>
+
+          <label>Postcode / ZIP *</label>
+          <input type="text" required />
+
+          <label>Phone *</label>
+          <input type="tel" required />
+
+          <label>Email address *</label>
+          <input type="email" name="email" required />
+
+          <label>Vin Number *</label>
+          <input type="text" required />
+
+          <div class="section-title">Additional information</div>
+          <label>Order notes (optional)</label>
+          <textarea></textarea>
+        </form>
+      </div>
+
+      <div class="order-summary">
+        <h3>Your order</h3>
+        <table class="order-table">
+          <tr>
+            <td>Product</td>
+            <td>Subtotal</td>
+          </tr>
+          <tr>
+            <td>Bronze × 1</td>
+            <td>$29.98</td>
+          </tr>
+          <tr>
+            <td><strong>Subtotal</strong></td>
+            <td><strong>$29.98</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Total</strong></td>
+            <td><strong>$29.98</strong></td>
+          </tr>
+        </table>
+
+        <p class="policy">
+          Your personal data will be used to process your order, support your experience throughout this website, and
+          for other purposes described in our <a href="#">privacy policy</a>.
+        </p>
+
+          <div id="paypal-button"></div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-left">
+        <img src="Assets/logo.png" alt="Vehicle Report Master Logo" />
+        <p>VIN Records History and Title Reports provide valuable info, dealer-friendly service, and unmatched customer
+          support.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Useful Links</h4>
+        <ul>
+          <li>Home</li>
+          <li>Our Pricing</li>
+          <li>About Us</li>
+          <li>Our Service</li>
+          <li>FAQ</li>
+          <li>Contact Us</li>
+        </ul>
+      </div>
+      <div class="footer-subscribe">
+        <h4>Subscribe Now</h4>
+        <p>Don’t miss our future updates! Get Subscribed Today!</p>
+        <form class="subscribe-form">
+          <input type="email" placeholder="Your mail here" />
+          <button type="submit">&#9993;</button>
+        </form>
+      </div>
+    </div>
+  </footer>
+
+  <div class="footer-bottom">
+    <span>©2025 All Rights Reserved Ride History PRO</span>
+    <div class="payment-logos"><img src="Assets/footer cards.png" alt="Visa" /></div>
+  </div>
+
+  <script>
+    const menuToggle = document.getElementById("menu-toggle");
+    const navLinks = document.getElementById("nav-links");
+    menuToggle.addEventListener("click", () => navLinks.classList.toggle("active"));
+
+    const countrySelect = document.getElementById("country");
+    const stateSelect = document.getElementById("state");
+
+    const statesByCountry = {
+      US: ["California", "Texas", "Florida", "New York", "Illinois", "Arizona", "Nevada"],
+      AU: ["New South Wales", "Victoria", "Queensland", "Western Australia"]
+    };
+
+    countrySelect.addEventListener("change", function () {
+      const selectedCountry = this.value;
+      const states = statesByCountry[selectedCountry] || [];
+      stateSelect.innerHTML = "";
+      const defaultOption = document.createElement("option");
+      defaultOption.value = "";
+      defaultOption.textContent = states.length ? "Select State / County" : "No states available";
+      stateSelect.appendChild(defaultOption);
+      states.forEach(state => {
+        const option = document.createElement("option");
+        option.value = state;
+        option.textContent = state;
+        stateSelect.appendChild(option);
+      });
+    });
+
+    let selectedPrice = "29.98";
+
+    const planDropdown = document.getElementById("planDropdown");
+    const orderTable = document.querySelector(".order-table");
+    const productRow = orderTable.rows[1];
+    const subtotalRow = orderTable.rows[2];
+    const totalRow = orderTable.rows[3];
+
+    function updateReceipt() {
+      const selectedOption = planDropdown.options[planDropdown.selectedIndex];
+      const price = parseFloat(selectedOption.value).toFixed(2);
+      const planName = selectedOption.text.split("–")[1].trim();
+      selectedPrice = price;
+      productRow.cells[0].textContent = `${planName} × 1`;
+      productRow.cells[1].textContent = `$${price}`;
+      subtotalRow.cells[1].innerHTML = `<strong>$${price}</strong>`;
+      totalRow.cells[1].innerHTML = `<strong>$${price}</strong>`;
+    }
+
+    updateReceipt();
+    planDropdown.addEventListener("change", updateReceipt);
+
+    // PayPal button (default funding source only)
+    paypal.Buttons({
+      onClick: (data, actions) => {
+        const form = document.getElementById("checkoutForm");
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return actions.reject();
+        }
+        return actions.resolve();
+      },
+      createOrder: (data, actions) => {
+        const selectedOption = document.getElementById("planDropdown").selectedOptions[0];
+        return actions.order.create({
+          purchase_units: [{
+            amount: { value: selectedOption.value }
+          }]
+        });
+      },
+      onApprove: (data, actions) => {
+        return actions.order.capture().then(details => {
+          const form = document.getElementById("checkoutForm");
+          const formData = new FormData(form);
+          const fullName = `${formData.get("fname")} ${formData.get("lname")}`;
+          const email = formData.get("email");
+          const plan = document.getElementById("planDropdown").selectedOptions[0].text;
+          fetch("https://formspree.io/f/mjkrbwev", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              name: fullName,
+              email: email,
+              message: `New order for ${plan}`
+            })
+          }).then(() => window.location.href = "thank-you.html");
+        });
+      },
+      onError: err => alert("PayPal payment failed: " + err)
+    }).render('#paypal-button');
+  </script>
+</body>
+
+</html>

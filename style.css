@@ -1,0 +1,1076 @@
+/* Reset & Fonts */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, sans-serif;
+  /* color: #fff; */
+  overflow-x: hidden;
+}
+
+/* Top Bar */
+.top-bar {
+  background-color: #d3a519;
+  color: #fff;
+  padding: 8px 10%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+.top-bar a{
+  color: white;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #D3AB1978;
+  padding: 15px 17%;
+  display: flex;
+  align-items: center;
+}
+.logo {
+  display: flex;
+  align-items: center;
+}
+.logo img {
+  width: 40%;
+  margin-right: 10px;
+}
+.brand strong {
+  font-size: 18px;
+  color: #000;
+}
+.brand span {
+  font-size: 12px;
+  color: #333;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  /* gap: 25px; */
+}
+.nav-links a {
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+/* Hamburger */
+.menu-toggle {
+  display: none;
+  font-size: 26px;
+  cursor: pointer;
+  color: #000;
+}
+
+/* Hero Section with slideshow */
+.hero-section {
+  height: 70vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 20px;
+}
+
+/* Hero Content */
+.hero-content h1 {
+  font-size: 50px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #fff;
+}
+.hero-content p {
+  font-size: 18px;
+  color: #fff;
+  margin-bottom: 30px;
+}
+.vin-input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 50px;
+  overflow: hidden;
+  padding: 5px;
+  max-width: 600px;
+  margin:  auto;
+  border: 5px solid #d3ab19;
+}
+.vin-input input {
+  flex: 1;
+  padding: 12px 20px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  color: #000;
+}
+.vin-input button {
+  background-color: #d3a519;
+  border: none;
+  color: white;
+  padding: 12px 20px;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 30px;
+  margin-left: 5px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    position: absolute;
+    top: 115px;
+    right: 0;
+    background-color: #fff;
+    width: 100%;
+    display: none;
+    padding: 15px 0;
+  }
+  .nav-links.active {
+    display: flex;
+  }
+  .menu-toggle {
+    display: block;
+  }
+  .navbar{
+    position: relative;
+  }
+  .logo img{
+    width: 75%;
+  }
+  .report-step {
+    max-width: unset !important;
+}
+.report-step img{
+  height: 100px !important;
+}
+.service-item{
+  text-align: center;
+}
+
+
+
+  .services-section {
+  padding: 60px 40px;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+.services-heading {
+  font-family: "Poppins", Sans-serif;
+  font-size: 50px;
+  font-weight: 600;
+  color: #D3AB19;
+  margin-bottom: 40px;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  justify-content: center;
+  align-items: start;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.service-item {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.icon {
+  font-size: 30px;
+  color: #D3AB19;
+  flex-shrink: 0;
+  margin-top: 6px;
+}
+
+.service-title {
+  font-family: "Poppins", sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 8px;
+}
+
+.service-text {
+  font-family: "Poppins", Sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #444;
+  line-height: 1.6;
+}
+
+
+}
+
+@media (max-width: 600px) {
+  .hero-content h1 {
+    font-size: 24px;
+  }
+  .hero-content p {
+    font-size: 16px;
+  }
+  .vin-input {
+    flex-direction: column;
+    gap: 10px;
+    border-radius: 20px;
+    padding: 10px;
+  }
+  .vin-input button {
+    margin-left: 0;
+    width: 100%;
+    border-radius: 20px;
+  }
+  .nav-links li:hover{
+    background-color: #3f444b;
+  }
+  .nav-links  li:hover > a{
+    color: #fff;
+  } 
+}
+.nav-links  a:hover {
+  color: #555847;
+}
+.nav-links li {
+  padding: 10px;
+  text-align: center;
+}
+
+
+
+
+
+
+.pricing-section {
+  text-align: center;
+  padding: 160px 20px;
+  background-color: #fff;
+}
+
+.pricing-section h2 {
+  color: goldenrod;
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.pricing-section h3 {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.pricing-section p {
+  color: #444;
+  margin-bottom: 40px;
+}
+
+.pricing-cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.pricing-card {
+  border: 2px solid goldenrod;
+  border-radius: 20px;
+  padding: 40px 30px;
+  width: 360px;
+  height: 796px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: white;
+  box-shadow: 0 0 20px rgba(218, 165, 32, 0.15);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.pricing-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 30px 10px rgba(218, 165, 32, 0.6);
+}
+
+.pricing-card h4 {
+  font-size: 35px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.pricing-card h2 {
+  font-size: 32px;
+  color: goldenrod;
+  margin-bottom: 5px;
+}
+
+.pricing-card p {
+  font-size: 16px;
+  color: #000;
+  margin-bottom: 20px;
+}
+
+.pricing-card ul {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+  margin: 20px 0;
+}
+
+.pricing-card ul li {
+  margin: 12px 0;
+  font-size: 20px;
+  position: relative;
+  padding-left: 24px;
+  color: #54595F;
+  line-height: 33px;
+}
+
+.pricing-card ul li::before {
+  content: "●";
+  position: absolute;
+  left: 0;
+  color: goldenrod;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.pricing-card button {
+  background-color: goldenrod;
+  color: white;
+  border: none;
+  padding: 14px 30px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  align-self: center;
+}
+
+.pricing-card button:hover {
+  background-color: #d4af37;
+}
+
+
+
+
+
+.ride-history-section {
+  padding: 60px 40px;
+  background-color: #fff;
+  font-family: "Poppins", Sans-serif;
+}
+
+.ride-history-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 1400px;
+  margin: auto;
+}
+
+.ride-history-left {
+  flex: 1;
+  padding-right: 30px;
+  min-width: 400px;
+}
+
+.ride-history-heading {
+  font-size: 50px;
+  font-weight: 600;
+  color: #D3AB19;
+  margin-bottom: 20px;
+}
+
+.ride-history-text {
+  font-size: 18px;
+  font-weight: 400;
+  color: #000;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.ride-history-list {
+  font-size: 18px;
+  font-weight: 400;
+  list-style: none;
+  padding-left: 0;
+  color: #000;
+}
+
+.ride-history-list li {
+  margin-bottom: 15px;
+  position: relative;
+  padding-left: 28px;
+}
+
+.ride-history-list li::before {
+  content: '✔';
+  position: absolute;
+  left: 0;
+  color: #D3AB19;
+  font-weight: bold;
+}
+
+.ride-history-right {
+  flex: 1;
+  text-align: center;
+  min-width: 400px;
+}
+
+.ride-history-image {
+  max-width: 100%;
+  height: auto;
+}
+
+
+
+
+
+
+
+.vin-info-section {
+  padding: 60px 40px;
+  background-color: #fff;
+  font-family: "Poppins", Sans-serif;
+}
+
+.vin-info-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 1400px;
+  margin: auto;
+}
+
+.vin-info-image {
+  flex: 1;
+  text-align: center;
+  min-width: 400px;
+}
+
+.vin-info-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+.vin-info-text {
+  flex: 1;
+  padding-left: 30px;
+  min-width: 400px;
+}
+
+.vin-info-heading {
+  font-size: 50px;
+  font-weight: 600;
+  color: #D3AB19;
+  margin-bottom: 20px;
+}
+
+.vin-info-text p {
+  font-size: 18px;
+  font-weight: 400;
+  color: #000000;
+  line-height: 1.6;
+}
+
+
+
+
+
+
+.how-vehicle-reports-work {
+  padding: 60px 30px;
+  background-color: #fff;
+  text-align: center;
+  font-family: "Poppins", Sans-serif;
+}
+
+.reports-heading {
+  font-size: 50px;
+  font-weight: 600;
+  color: #D3AB19;
+  margin-bottom: 40px;
+}
+
+.reports-steps {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+}
+
+.report-step {
+  max-width: 30vw
+}
+
+.report-step img {
+  width: auto;
+  height: 140px;
+  margin-bottom: 20px;
+}
+
+.step-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: #D3AB19;
+  margin-bottom: 10px;
+}
+
+.report-step p {
+  font-size: 18px;
+  font-weight: 400;
+  color: #000000;
+  line-height: 1.6;
+}
+
+
+
+
+
+
+.about-section {
+  padding: 50px 19vw;
+  background-color: #D3AB1961;
+}
+
+.content {
+  display: flex;
+  gap: 50px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.left,
+.right {
+  flex: 1;
+  min-width: 300px;
+}
+
+.heading {
+  font-family: "Poppins", Sans-serif;
+  font-size: 30px;
+  font-weight: 600;
+  color: #D3AB19;
+  margin-bottom: 10px;
+}
+
+.subheading {
+  font-family: "Poppins", Sans-serif;
+  font-size: 40px;
+  font-weight: 600;
+  color: #000000;
+  margin-bottom: 20px;
+}
+
+.car-image {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.description {
+  font-family: "Poppins", Sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: #000000;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.feature {
+  margin-bottom: 25px;
+}
+
+.feature p {
+  font-family: "Poppins", Sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  margin-bottom: 8px;
+  color: #000000;
+}
+
+.bar-container {
+  width: 100%;
+  height: 16px;
+  background-color: #d3ab193d; /* lighter background */
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.bar {
+  height: 100%;
+  width: 0;
+  background-color: #D3AB19;
+  border-radius: 10px;
+  transition: width 2s ease-in-out;
+}
+
+
+
+
+
+
+
+
+
+.services-section {
+  padding: 60px 40px;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+.services-heading {
+  font-family: "Poppins", Sans-serif;
+  font-size: 50px;
+  font-weight: 600;
+  color: #D3AB19;
+  margin-bottom: 40px;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  justify-content: center;
+  align-items: start;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.service-item {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.icon {
+  font-size: 50px;
+  color: #D3AB19;
+  flex-shrink: 0;
+  margin-top: 6px;
+}
+
+.service-title {
+  font-family: "Poppins", sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 8px;
+}
+
+.service-text {
+  font-family: "Poppins", Sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #444;
+  line-height: 1.6;
+}
+
+
+
+
+
+
+.authority-section {
+  text-align: center;
+  padding: 60px 0px;
+}
+
+.authority-heading {
+  font-family: "Poppins", Sans-serif;
+  font-size: 50px;
+  font-weight: 600;
+  color: #D3AB19;
+  margin-bottom: 16px;
+}
+
+.authority-subtext {
+  font-family: "Poppins", Sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #000000;
+  max-width: 800px;
+  margin: 0 auto 40px;
+}
+
+.authority-stats {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  flex-wrap: wrap;
+  background-color: #D3AB1978;
+padding: 30px;
+}
+
+.stat {
+  text-align: center;
+  min-width: 150px;
+}
+
+.stat-number {
+  font-family: "Poppins", sans-serif;
+  font-size: 69px;
+  font-weight: 500;
+  color: #000;
+}
+
+.stat-label {
+  color: #000000;
+  font-family: "Poppins", Sans-serif;
+  font-weight: 400;
+  font-size: 19px;
+  margin-top: 8px;
+}
+
+
+
+
+
+
+
+
+
+
+/* FAQ Section */
+.faq-section {
+  max-width: 900px;
+  margin: auto;
+  padding: 60px 0px;
+  font-family: "Poppins", sans-serif;
+  background-color: #fff;
+}
+
+/* Heading */
+.faq-title {
+  font-family: "Poppins", sans-serif;
+  font-size: 50px;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-align: center;
+  color: #D3AB19;
+  margin-bottom: 40px;
+}
+
+/* FAQ Items */
+.faq-item {
+  border-top: 1px solid #ccc;
+}
+
+/* FAQ Question */
+.faq-question {
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  padding: 20px;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #000;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+/* Arrow icon before text */
+.faq-question::before {
+  content: "▸";
+  margin-right: 10px;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+/* Active state for question */
+.faq-question.active {
+  color: #D3AB19;
+}
+
+.faq-question.active::before {
+  content: "▾";
+}
+
+/* FAQ Answer */
+.faq-answer {
+  padding: 0 20px 20px;
+  display: none;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #444;
+}
+
+.faq-answer.show {
+  display: block;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Contact Section */
+.contact-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 20px;
+  gap: 60px;
+  flex-wrap: wrap;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Image styling */
+.contact-image {
+  max-width: 600px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+/* Form container */
+.contact-form-container {
+  flex: 1;
+  max-width: 600px;
+}
+
+/* Heading */
+.contact-form-title {
+  font-size: 40px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #D3AB19;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+/* Form fields */
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 15px 20px;
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+  border: 2px solid #D3AB19;
+  border-radius: 40px;
+  margin-bottom: 20px;
+  outline: none;
+  transition: border-color 0.3s ease;
+  color: #333;
+}
+
+/* Larger radius for textarea */
+.contact-form textarea {
+  border-radius: 30px;
+  height: 140px;
+  resize: none;
+}
+
+/* Submit button */
+.contact-form button {
+  padding: 12px 30px;
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  color: #fff;
+  background-color: #D3AB19;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #b99414;
+}
+
+.contact-image img {
+  height: 59vh;
+}
+
+
+
+
+
+
+
+/* Trusted Providers Section */
+.trusted-providers {
+  text-align: center;
+  padding: 60px 20px;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Heading */
+.trusted-providers h2 {
+  font-size: 30px;
+  font-weight: 600;
+  color: #D3AB19;
+  margin-bottom: 20px;
+}
+
+/* Description Text */
+.trusted-providers p {
+  font-size: 26px;
+  font-weight: 600;
+  color: #000000;
+  margin-bottom: 40px;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.4;
+}
+
+/* Logos Layout */
+.provider-logos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 60px;
+  align-items: center;
+}
+
+.provider-logos img {
+  max-height: 80px;
+  object-fit: contain;
+}
+
+
+
+
+
+
+
+
+.footer {
+  background-color: #e6d187;
+  padding: 60px 40px 20px;
+  font-family: "Poppins", Sans-serif;
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 30px 14vw;
+}
+
+.footer-left,
+.footer-links,
+.footer-subscribe {
+  flex: 1;
+  min-width: 250px;
+}
+
+/* Left Column */
+.footer-left img {
+  max-width: 200px;
+  margin-bottom: 20px;
+}
+
+.footer-left p {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+  color: #111111;
+  max-width: 350px;
+}
+
+/* Links */
+.footer-links h4 {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 35px;
+  color: #D3AB19;
+  margin-bottom: 15px;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+/* Subscribe */
+.footer-subscribe h4 {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 35px;
+  color: #D3AB19;
+  margin-bottom: 10px;
+}
+
+.footer-subscribe p {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+  color: #111111;
+  margin-bottom: 20px;
+}
+
+.subscribe-form {
+  display: flex;
+  max-width: 400px;
+}
+
+.subscribe-form input {
+  flex: 1;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 25px 0 0 25px;
+  outline: none;
+  font-size: 16px;
+}
+
+.subscribe-form button {
+  background-color: #D3AB19;
+  border: none;
+  border-radius: 0 25px 25px 0;
+  padding: 0 20px;
+  cursor: pointer;
+  color: #fff;
+  font-size: 20px;
+}
+
+/* Bottom Bar */
+.footer-bottom {
+  background-color: #d3ab19;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  color: #ffffff;
+  font-size: 16px;
+}
+
+.footer-bottom img {
+  height: 17px;
+  margin-left: 10px;
+}
