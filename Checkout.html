@@ -14,8 +14,8 @@
 
 <body>
   <div class="top-bar">
-    <span>info@RideHistorypro.com</span>
-    <span>+1 (631) 1 480-7537</span>
+    <span >info@RideHistorypro.com</span>
+    <span class="number">+1 (631) 1 480-7537</span>
   </div>
 
   <nav class="navbar">
@@ -93,7 +93,7 @@
           <input type="email" name="email" required />
 
           <label>Vin Number *</label>
-          <input type="text" required />
+          <input type="text" name="vinNumber" required />
 
           <div class="section-title">Additional information</div>
           <label>Order notes (optional)</label>
@@ -160,7 +160,7 @@
       </div>
     </div>
   </footer>
-
+<button onclick="testform()">hello</button>
   <div class="footer-bottom">
     <span>©2025 All Rights Reserved Ride History PRO</span>
     <div class="payment-logos"><img src="Assets/footer cards.png" alt="Visa" /></div>
@@ -242,19 +242,26 @@
           const fullName = `${formData.get("fname")} ${formData.get("lname")}`;
           const email = formData.get("email");
           const plan = document.getElementById("planDropdown").selectedOptions[0].text;
-          fetch("https://formspree.io/f/mjkrbwev", {
+          const vinNum = formData.get("vinNumber");
+
+          fetch("https://formspree.io/f/xeokgdwn", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
               name: fullName,
               email: email,
-              message: `New order for ${plan}`
+              message: `New order for ${plan}`,
+              VinNumber:vinNum, 
             })
-          }).then(() => window.location.href = "thank-you.html");
+          })
+
         });
       },
       onError: err => alert("PayPal payment failed: " + err)
     }).render('#paypal-button');
+
+
+
   </script>
 </body>
 
