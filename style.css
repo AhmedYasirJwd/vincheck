@@ -1079,5 +1079,5 @@ padding: 30px;
 }
  */
 .topbar span{
-  display:none;
+  display:none !important;
 }
