@@ -1074,6 +1074,6 @@ padding: 30px;
   height: 17px;
   margin-left: 10px;
 }
-.number{
-  color: #0500e3;
+span.number {
+    color: #070ba7;
 }
