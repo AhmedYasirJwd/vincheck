@@ -246,32 +246,37 @@
           }]
         });
       },
-      onApprove: (data, actions) => {
-        return actions.order.capture().then(details => {
-          const form = document.getElementById("checkoutForm");
-          const formData = new FormData(form);
-          const fullName = `${formData.get("fname")} ${formData.get("lname")}`;
-          const email = formData.get("email");
-          const plan = document.getElementById("planDropdown").selectedOptions[0].text;
-          const vinNum = formData.get("vinNumber");
+onApprove: (data, actions) => {
+  return actions.order.capture().then(details => {
+    const form = document.getElementById("checkoutForm");
+    const formData = new FormData(form);
+    const fullName = `${formData.get("fname")} ${formData.get("lname")}`;
+    const email = formData.get("email");
+    const plan = document.getElementById("planDropdown").selectedOptions[0].text;
+    const vinNum = formData.get("vinNumber");
 
+    return fetch("https://formspree.io/f/xeokgdwn", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: fullName,
+        email: email,
+        message: `New order for ${plan}`,
+        VinNumber: vinNum
+      })
+    })
+    .then(() => {
+      // ✅ Redirect only after successful form submission
+      window.location.href = "thankyou.html";
+    })
+    .catch(error => {
+      alert("Form submission failed. Please contact support.");
+      console.error("Formspree Error:", error);
+    });
+  });
+}
 
-
-window.location.href = "thankyou.html";
-
-          fetch("https://formspree.io/f/xeokgdwn", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              name: fullName,
-              email: email,
-              message: `New order for ${plan}`,
-              VinNumber:vinNum, 
-            })
-          })
-
-        });
-      },
+,
       onError: err => alert("PayPal payment failed: " + err)
     }).render('#paypal-button');
 
