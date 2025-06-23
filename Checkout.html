@@ -8,26 +8,26 @@
   <link rel="stylesheet" href="checkout.css" />
   <link rel="stylesheet" href="style.css" />
   <script
-    src="https://www.paypal.com/sdk/js?client-id=AVx6kcena6-JfqBaUdiCRVmDjKc2jTbWHqL_CpaEcKg9amuD-hax39fDeA5BYBFlekcvsORI7eTIPEfm&currency=USD&buyer-country=US&components=buttons">
+    src="https://www.paypal.com/sdk/js?client-id=AV2kmEbFj-fbzFiP9ibKH22tAZdeYW7C2eqmhPAT5NFqnkVgWzFYGbqg_Rlg-wk1jcP7c9dxoUeC8ikW&currency=USD&buyer-country=US&components=buttons">
   </script>
 </head>
 
 <body>
   <div class="top-bar">
-    <span>info@RideHistorypro.com</span>
-    <span>+1 (631) 1 480-7537</span>
+    <span >Trueautofacts.com@gmail.com</span>
+    <span class="number">+1-859-396-2010</span>
   </div>
 
   <nav class="navbar">
     <div class="logo"><img src="Assets/logo.png" alt="Logo" /></div>
     <div class="menu-toggle" id="menu-toggle">&#9776;</div>
     <ul class="nav-links" id="nav-links">
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Our Pricing</a></li>
-      <li><a href="#">About Us</a></li>
-      <li><a href="#">Our Service</a></li>
-      <li><a href="#">FAQ</a></li>
-      <li><a href="#">Contact Us</a></li>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html">Our Pricing</a></li>
+      <li><a href="index.html">About Us</a></li>
+      <li><a href="index.html">Our Service</a></li>
+      <li><a href="index.html">FAQ</a></li>
+      <li><a href="index.html">Contact Us</a></li>
     </ul>
   </nav>
 
@@ -38,7 +38,7 @@
         <div>
           Select your plan:
           <select id="planDropdown">
-            <option value="0.03">$1.00 – Bronze Plan (Test)</option>
+            <option value="39.98">$39.98 – Bronze Plan </option>
             <option value="49.99">$49.99 – Silver Plan</option>
             <option value="69.99">$69.99 – Gold Plan</option>
           </select>
@@ -93,7 +93,7 @@
           <input type="email" name="email" required />
 
           <label>Vin Number *</label>
-          <input type="text" required />
+          <input type="text" name="vinNumber" required />
 
           <div class="section-title">Additional information</div>
           <label>Order notes (optional)</label>
@@ -160,7 +160,7 @@
       </div>
     </div>
   </footer>
-
+<button onclick="testform()">hello</button>
   <div class="footer-bottom">
     <span>©2025 All Rights Reserved Ride History PRO</span>
     <div class="payment-logos"><img src="Assets/footer cards.png" alt="Visa" /></div>
@@ -175,8 +175,19 @@
     const stateSelect = document.getElementById("state");
 
     const statesByCountry = {
-      US: ["California", "Texas", "Florida", "New York", "Illinois", "Arizona", "Nevada"],
-      AU: ["New South Wales", "Victoria", "Queensland", "Western Australia"]
+  US: [
+    "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware",
+    "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky",
+    "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi",
+    "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico",
+    "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania",
+    "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Vermont",
+    "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"
+  ],
+  AU: [
+    "New South Wales", "Victoria", "Queensland", "Western Australia",
+    "South Australia", "Tasmania", "Australian Capital Territory", "Northern Territory"
+  ]
     };
 
     countrySelect.addEventListener("change", function () {
@@ -242,19 +253,30 @@
           const fullName = `${formData.get("fname")} ${formData.get("lname")}`;
           const email = formData.get("email");
           const plan = document.getElementById("planDropdown").selectedOptions[0].text;
-          fetch("https://formspree.io/f/mjkrbwev", {
+          const vinNum = formData.get("vinNumber");
+
+
+
+window.location.href = "thankyou.html";
+
+          fetch("https://formspree.io/f/xeokgdwn", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
               name: fullName,
               email: email,
-              message: `New order for ${plan}`
+              message: `New order for ${plan}`,
+              VinNumber:vinNum, 
             })
-          }).then(() => window.location.href = "thank-you.html");
+          })
+
         });
       },
       onError: err => alert("PayPal payment failed: " + err)
     }).render('#paypal-button');
+
+
+
   </script>
 </body>
 
