@@ -7,15 +7,21 @@
   <title>Checkout</title>
   <link rel="stylesheet" href="checkout.css" />
   <link rel="stylesheet" href="style.css" />
+<<<<<<< HEAD
   <script
-    src="https://www.paypal.com/sdk/js?client-id=AV2kmEbFj-fbzFiP9ibKH22tAZdeYW7C2eqmhPAT5NFqnkVgWzFYGbqg_Rlg-wk1jcP7c9dxoUeC8ikW&currency=USD&buyer-country=US&components=buttons">
+    src="https://www.paypal.com/sdk/js?client-id=ASKXjJVJzsCCDw-ksJq4zHr5Ts6k7s3Fjui-i2CiXbCGKhlLCNY-5ojonnaoSrgAkdb8XRdOzfhCQoAA&currency=USD&buyer-country=US&components=buttons">
   </script>
 </head>
+=======
+<script src="https://www.paypal.com/sdk/js?client-id=AY-lmLUOo7zc3F-RsE9Gc5kTPxwcdChoyEUcFRkGSi4aYwItTg2oSsPKFDKGXD-FbK-hSff1P7hcB2FR&currency=USD"></script>
+
+</head> 
+>>>>>>> b1ca3e8 (Redirect to thankyou.html after form submission)
 
 <body>
   <div class="top-bar">
     <span >Trueautofacts.com@gmail.com</span>
-    <span class="number">+1-859-396-2010</span>
+    <span class="number">+1 (631) 1 480-7537</span>
   </div>
 
   <nav class="navbar">
@@ -171,40 +177,40 @@
     const navLinks = document.getElementById("nav-links");
     menuToggle.addEventListener("click", () => navLinks.classList.toggle("active"));
 
-    const countrySelect = document.getElementById("country");
-    const stateSelect = document.getElementById("state");
+  //   const countrySelect = document.getElementById("country");
+  //   const stateSelect = document.getElementById("state");
 
-    const statesByCountry = {
-  US: [
-    "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware",
-    "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky",
-    "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi",
-    "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico",
-    "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania",
-    "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Vermont",
-    "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"
-  ],
-  AU: [
-    "New South Wales", "Victoria", "Queensland", "Western Australia",
-    "South Australia", "Tasmania", "Australian Capital Territory", "Northern Territory"
-  ]
-    };
+  //   const statesByCountry = {
+  // US: [
+  //   "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware",
+  //   "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky",
+  //   "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi",
+  //   "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico",
+  //   "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania",
+  //   "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Vermont",
+  //   "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"
+  // ],
+  // AU: [
+  //   "New South Wales", "Victoria", "Queensland", "Western Australia",
+  //   "South Australia", "Tasmania", "Australian Capital Territory", "Northern Territory"
+  // ]
+  //   };
 
-    countrySelect.addEventListener("change", function () {
-      const selectedCountry = this.value;
-      const states = statesByCountry[selectedCountry] || [];
-      stateSelect.innerHTML = "";
-      const defaultOption = document.createElement("option");
-      defaultOption.value = "";
-      defaultOption.textContent = states.length ? "Select State / County" : "No states available";
-      stateSelect.appendChild(defaultOption);
-      states.forEach(state => {
-        const option = document.createElement("option");
-        option.value = state;
-        option.textContent = state;
-        stateSelect.appendChild(option);
-      });
-    });
+  //   countrySelect.addEventListener("change", function () {
+  //     const selectedCountry = this.value;
+  //     const states = statesByCountry[selectedCountry] || [];
+  //     stateSelect.innerHTML = "";
+  //     const defaultOption = document.createElement("option");
+  //     defaultOption.value = "";
+  //     defaultOption.textContent = states.length ? "Select State / County" : "No states available";
+  //     stateSelect.appendChild(defaultOption);
+  //     states.forEach(state => {
+  //       const option = document.createElement("option");
+  //       option.value = state;
+  //       option.textContent = state;
+  //       stateSelect.appendChild(option);
+  //     });
+  //   });
 
     let selectedPrice = "29.98";
 
@@ -278,6 +284,52 @@ window.location.href = "thankyou.html";
 
 
   </script>
+  <script>
+  const countrySelect = document.getElementById("country");
+  const stateSelect = document.getElementById("state");
+  let countriesData = [];
+
+  fetch("countries.json")
+    .then(response => response.json())
+    .then(data => {
+      countriesData = data;
+      populateCountries(data);
+    });
+
+  function populateCountries(data) {
+    countrySelect.innerHTML = '<option value="">Select Country</option>';
+    data.forEach(country => {
+      const option = document.createElement("option");
+      option.value = country.code2;
+      option.textContent = country.name;
+      countrySelect.appendChild(option);
+    });
+  }
+
+  countrySelect.addEventListener("change", function () {
+    const selectedCode = this.value;
+    const selectedCountry = countriesData.find(c => c.code2 === selectedCode);
+    stateSelect.innerHTML = "";
+    if (selectedCountry && selectedCountry.states.length > 0) {
+      const defaultOption = document.createElement("option");
+      defaultOption.value = "";
+      defaultOption.textContent = "Select State / Province";
+      stateSelect.appendChild(defaultOption);
+      selectedCountry.states.forEach(state => {
+        const option = document.createElement("option");
+        option.value = state.name;
+        option.textContent = state.name;
+        stateSelect.appendChild(option);
+      });
+    } else {
+      const option = document.createElement("option");
+      option.value = "";
+      option.textContent = "No states available";
+      stateSelect.appendChild(option);
+    }
+  });
+</script>
+
 </body>
 
 </html>
